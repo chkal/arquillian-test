@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>de.chkal.arquillian.test</groupId>
+   <artifactId>arquillian-test</artifactId>
+   <packaging>war</packaging>
+   <version>1.0-SNAPSHOT</version>
+   <name>Arquillian Test</name>
+
+   <properties>
+      <arquillian.version>1.0.0-SNAPSHOT</arquillian.version>
+   </properties>
+
+   <dependencies>
+
+      <dependency>
+         <groupId>org.apache.geronimo.specs</groupId>
+         <artifactId>geronimo-servlet_3.0_spec</artifactId>
+         <version>1.0</version>
+         <scope>provided</scope>
+      </dependency>
+
+
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.8.1</version>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.jboss.arquillian</groupId>
+         <artifactId>arquillian-junit</artifactId>
+         <version>${arquillian.version}</version>
+         <scope>test</scope>
+      </dependency>
+      
+   </dependencies>
+   
+   <profiles>
+   
+      <profile>
+         <id>jetty</id>
+         <activation>
+            <activeByDefault>true</activeByDefault>
+         </activation>
+         <dependencies>
+            <dependency>
+               <groupId>org.jboss.arquillian.container</groupId>
+               <artifactId>arquillian-jetty-embedded-7</artifactId>
+               <version>${arquillian.version}</version>
+               <scope>test</scope>
+            </dependency>
+            <dependency>
+               <groupId>org.eclipse.jetty</groupId>
+               <artifactId>jetty-webapp</artifactId>
+               <version>8.0.0.M1</version>
+               <scope>test</scope>
+            </dependency>
+          </dependencies>
+      </profile>
+
+      <profile>
+         <id>tomcat7</id>
+         <dependencies>
+            <dependency>
+               <groupId>org.jboss.arquillian.container</groupId>
+               <artifactId>arquillian-tomcat-embedded-7</artifactId>
+               <version>${arquillian.version}</version>
+               <scope>test</scope>
+            </dependency>
+
+            <dependency>
+               <groupId>org.apache.tomcat</groupId>
+               <artifactId>tomcat-catalina</artifactId>
+               <version>7.0.4</version>
+               <scope>provided</scope>
+            </dependency>
+      
+            <dependency>
+               <groupId>org.apache.tomcat</groupId>
+               <artifactId>tomcat-coyote</artifactId>
+               <version>7.0.4</version>
+               <scope>provided</scope>
+            </dependency>
+
+          </dependencies>
+      </profile>
+
+      
+    </profiles>
+   
+   
+</project>
