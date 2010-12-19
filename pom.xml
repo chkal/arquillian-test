@@ -83,6 +83,20 @@
                <version>7.0.4</version>
                <scope>provided</scope>
             </dependency>
+            
+
+            <dependency>
+               <groupId>org.apache.tomcat</groupId>
+               <artifactId>tomcat-jasper</artifactId>
+               <version>7.0.4</version>
+               <scope>provided</scope>
+               <exclusions>
+                  <exclusion>
+                     <groupId>org.eclipse.jdt.core.compiler</groupId>
+                     <artifactId>ecj</artifactId>
+                  </exclusion>
+               </exclusions>
+            </dependency>
 
           </dependencies>
       </profile>
